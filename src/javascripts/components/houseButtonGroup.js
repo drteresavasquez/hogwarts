@@ -3,11 +3,10 @@ import houseButton from './houseButton';
 
 const createHouseButtonGroup = () => {
   const houses = houseData.getHouses();
-  let domString = '<div class="house-button-group">';
-  houses.forEach((house) => {
-    domString += houseButton.createHouseButton(house);
-  });
-  domString += '</div>';
+  const domString = `
+  <div class="house-button-group">
+    ${houses.map((house) => houseButton.createHouseButton(house))}
+  </div>`;
 
   $('#button-container').html(domString);
 
