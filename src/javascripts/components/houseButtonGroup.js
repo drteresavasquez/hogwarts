@@ -2,6 +2,11 @@ import houseData from '../../data/houseData';
 import houseButton from './houseButton';
 
 const createHouseButtonGroup = () => {
+  const houses = houseData.getHouses();
+  const domString = `
+  <div class="house-button-group">
+    ${houses.map((house) => houseButton.createHouseButton(house))}
+  </div>`;
 
   $('#button-container').html(domString);
 
